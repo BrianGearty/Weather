@@ -1,0 +1,104 @@
+.jumbotron{
+    background-image: url(./Assets/background.jpg) ;
+    justify-content: center;
+    height: auto;
+    margin: 0 auto;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+.card-body{
+    background-color: rgb(32, 32, 32, .5);
+    text-align: center !important;
+}
+
+body{
+    background-color: rgb(52, 61, 77);
+}
+
+.recentCities{
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(32, 32, 32, .5);
+    color: white;
+}
+
+#cityDiv,
+.forecastCard{
+    background-color: rgb(32, 32, 32, .5);
+}
+
+
+.forecast{
+    background-color:rgb(155, 159, 156);
+}
+
+
+.btn {
+    display:block;
+    margin:10px;
+    background-color:rgb(155, 159, 156);
+}
+
+#currentWeather{
+    background-color: rgb(32, 32, 32, .5);
+}
+
+li{
+    list-style-type: none;
+}
+
+.card{
+    text-align: center;
+}
+
+button{
+    margin: 2px;
+}
+
+
+.my-1{
+    width: 100%;
+}
+
+.display-4, .display-5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+}
+
+.card-header, #cityButton, .card-text{
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color:white;
+}
+
+.fiveDay{
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    color: white;
+}
+
+.low-uv {
+    color: green;
+}
+.moderate-uv {
+    color: orange;
+}
+.high-uv {
+    color: red;
+}
+.danger-uv {
+    color: purple;
+}
+
+@media (max-width: 769px){
+    .searchResult {
+        text-align: center;
+        font-size: 10px !important;
+    }
+    .display-5{
+        font-size: 15px;
+    }
+    .fiveDay{
+        font-size: 8px;
+    }
+}
