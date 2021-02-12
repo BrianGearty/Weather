@@ -15,8 +15,6 @@ $(document).ready(function () {
     function showPosition(position) {
         longitude = position.coords.longitude;
         latitude = position.coords.latitude;
-        console.log(longitude);
-        console.log(latitude);
         renderWeather()
     }
     function renderWeather() {
@@ -28,7 +26,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            console.log("WEATHER API DATA", response.current.weather[0].main);
             let currentWeather = response.current.weather[0].main;
             if (currentWeather == "Clear") {
                 let clearImg = $(".backgroundImage").css({
@@ -130,7 +127,6 @@ $(document).ready(function () {
             url: googleURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
             var cityDiv = $("#cityName");
             var cityData = response.results[5].formatted_address;
             cityDiv.html("");
@@ -146,7 +142,6 @@ $(document).ready(function () {
             url: opencageURL,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
             latitude = response.results[0].geometry.lat
             longitude = response.results[0].geometry.lng
             renderWeather();
@@ -175,7 +170,6 @@ $(document).ready(function () {
     $("#CityButton").on("click", "button", function (event) {
         event.preventDefault();
         clickCity = $(this).attr("data-name");
-        console.log(clickCity);
         citybutton();
     })
     $("#searchButton").on("click", function (event) {
@@ -189,13 +183,11 @@ $(document).ready(function () {
             $("#searchBar").val("");
             renderButtons();
             renderWeather();
-            console.log("SEARCH", cityHistory)
         }
     })
     $("#clearButton").on("click", function (event) {
         event.preventDefault();
-        $("#searchBar").val("");
-        console.log(cityHistory.pop());          
+        $("#searchBar").val("");        
         localStorage.setItem("searchHistory", JSON.stringify(cityHistory));
         $("#CityButton").html("");
         renderButtons();
