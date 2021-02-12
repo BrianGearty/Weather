@@ -30,49 +30,50 @@ $(document).ready(function () {
         }).then(function (response) {
             console.log("WEATHER API DATA", response.current.weather[0].main);
             let currentWeather = response.current.weather[0].main;
-            if(currentWeather == "Clear"){
+            if (currentWeather == "Clear") {
                 let clearImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/clear.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover',
                     'background-position': '75% 75% '
                 })
                 $(".jumbotron").append(clearImg)
-            } else if(currentWeather == "Rain"){
+            } else if (currentWeather == "Rain") {
                 let raimImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/raindrop.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(raimImg)
-            } else if(currentWeather == "Thunderstorm"){
+            } else if (currentWeather == "Thunderstorm") {
                 let thunderImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/thunderstorm.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(thunderImg)
-            } else if(currentWeather == "Clouds"){
+            } else if (currentWeather == "Clouds") {
                 let overcastImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/overcast.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(overcastImg)
-            } else if(currentWeather == "Snow"){
+            } else if (currentWeather == "Snow") {
                 let snowImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/snow.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(snowImg)
-            } else if(currentWeather == "Mist"){
+            } else if (currentWeather == "Mist") {
                 let mistImg = $(".backgroundImage").css({
                     'background-image': 'url(../Assets/mist.gif)',
-                    'background-repeat':'no-repeat',
+                    'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(mistImg)
+            }
             $("#currentWeather").empty();
             var tempDiv = $("<p id='temp' class='card-text'>");
             var humidDiv = $("<p id='humid' class='card-text'>");
@@ -183,22 +184,22 @@ $(document).ready(function () {
         if (searchValue === "") {
             alert("Please type in a city")
         } else {
-        cityHistory.push(searchValue);
-        localStorage.setItem("searchHistory", JSON.stringify(cityHistory));
-        $("#searchBar").val("");
-        renderButtons();
-        renderWeather();
+            cityHistory.push(searchValue);
+            localStorage.setItem("searchHistory", JSON.stringify(cityHistory));
+            $("#searchBar").val("");
+            renderButtons();
+            renderWeather();
+            console.log("SEARCH", cityHistory)
         }
     })
     $("#clearButton").on("click", function (event) {
         event.preventDefault();
         $("#searchBar").val("");
-        localStorage.clear();
-        cityHistory = ["NEW YORK", "CHICAGO", "LOS ANGELES", "MIAMI", "SEATTLE"];
+        console.log(cityHistory.pop());          
+        localStorage.setItem("searchHistory", JSON.stringify(cityHistory));
         $("#CityButton").html("");
         renderButtons();
     })
-
     StorageCheck();
     getLocation();
 });
