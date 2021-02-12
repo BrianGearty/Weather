@@ -32,7 +32,7 @@ $(document).ready(function () {
             let currentWeather = response.current.weather[0].main;
             if (currentWeather == "Clear") {
                 let clearImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/clear.gif)',
+                    'background-image': 'url(./Assets/clear.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover',
                     'background-position': '75% 75% '
@@ -40,35 +40,35 @@ $(document).ready(function () {
                 $(".jumbotron").append(clearImg)
             } else if (currentWeather == "Rain") {
                 let raimImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/raindrop.gif)',
+                    'background-image': 'url(assets/raindrop.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(raimImg)
             } else if (currentWeather == "Thunderstorm") {
                 let thunderImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/thunderstorm.gif)',
+                    'background-image': 'url(assets/thunderstorm.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(thunderImg)
             } else if (currentWeather == "Clouds") {
                 let overcastImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/overcast.gif)',
+                    'background-image': 'url(assets/overcast.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(overcastImg)
             } else if (currentWeather == "Snow") {
                 let snowImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/snow.gif)',
+                    'background-image': 'url(assets/snow.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(snowImg)
             } else if (currentWeather == "Mist") {
                 let mistImg = $(".backgroundImage").css({
-                    'background-image': 'url(../Assets/mist.gif)',
+                    'background-image': 'url(assets/mist.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
