@@ -40,35 +40,35 @@ $(document).ready(function () {
                 $(".jumbotron").append(clearImg)
             } else if (currentWeather == "Rain") {
                 let raimImg = $(".backgroundImage").css({
-                    'background-image': 'url(assets/raindrop.gif)',
+                    'background-image': 'url(./Assets/raindrop.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(raimImg)
             } else if (currentWeather == "Thunderstorm") {
                 let thunderImg = $(".backgroundImage").css({
-                    'background-image': 'url(assets/thunderstorm.gif)',
+                    'background-image': 'url(./Assets/thunderstorm.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(thunderImg)
             } else if (currentWeather == "Clouds") {
                 let overcastImg = $(".backgroundImage").css({
-                    'background-image': 'url(assets/overcast.gif)',
+                    'background-image': 'url(./Assets/overcast.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(overcastImg)
             } else if (currentWeather == "Snow") {
                 let snowImg = $(".backgroundImage").css({
-                    'background-image': 'url(assets/snow.gif)',
+                    'background-image': 'url(./Assets/snow.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
                 $(".jumbotron").append(snowImg)
             } else if (currentWeather == "Mist") {
                 let mistImg = $(".backgroundImage").css({
-                    'background-image': 'url(assets/mist.gif)',
+                    'background-image': 'url(./Assets/mist.gif)',
                     'background-repeat': 'no-repeat',
                     'background-size': 'cover'
                 })
