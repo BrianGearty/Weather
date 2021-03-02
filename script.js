@@ -4,8 +4,7 @@ $(document).ready(function () {
 
     setInterval(function () {
         var momentNow = moment();
-        $("#date").html(momentNow.format("dddd").toUpperCase(1).substring(0, 8) + "  " + momentNow.format("MMMM DD, YYYY"));
-        $("#time").html(momentNow.format("hh:mm"));
+        $("#date").html(momentNow.format("ddd").toUpperCase().substring(0, 8) + ",  " + momentNow.format('MMMM Do YYYY, h:mm a'));
     }, 100);
 
     function getLocation() {
@@ -147,7 +146,7 @@ $(document).ready(function () {
             renderWeather();
         })
     }
-    var cityHistory = ["NEW YORK", "CHICAGO", "LOS ANGELES", "MIAMI", "SEATTLE"];
+    var cityHistory = ["NEW YORK", "CHICAGO", "LOS ANGELES", "MIAMI", "PORTLAND"];
     function StorageCheck() {
         var storedCity = JSON.parse(localStorage.getItem("searchHistory"));
         if (storedCity !== null) {
@@ -155,18 +154,21 @@ $(document).ready(function () {
         }
         renderButtons();
     }
+    let newButton;
     function renderButtons() {
         $("#CityButton").html("");
         for (var i = 0; i < cityHistory.length; i++) {
             var city = cityHistory[i];
-            var newButton = $("<button>");
+            newButton = $("<button>");
             newButton.addClass("btn searchResult display-4 mx-auto");
             newButton.attr("data-name", city);
             newButton.attr("id", "cityButton");
             newButton.text(city);
+
             $("#CityButton").prepend(newButton);
         }
     }
+
     $("#CityButton").on("click", "button", function (event) {
         event.preventDefault();
         clickCity = $(this).attr("data-name");
@@ -185,11 +187,22 @@ $(document).ready(function () {
             renderWeather();
         }
     })
-    $("#clearButton").on("click", function (event) {
+    $("#clearButton").on("click",  function (event) {
         event.preventDefault();
-        $("#searchBar").val("");        
-        localStorage.setItem("searchHistory", JSON.stringify(cityHistory));
-        $("#CityButton").html("");
+        $("#searchBar").val(""); 
+        var searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+        searchHistory.splice(searchHistory.length -1)
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        let deletedCity = $("#CityButton")[0].children;
+        // let findDeleted = $("#CityButton").find(deletedCity).prevObject[0].firstChild.innerText;
+        // let toDelete = $("#CityButton")[0].children[0]
+        for (var i = 0; i < deletedCity.length; i++){
+            if(parseInt([i]) === 0){
+                deletedCity = parseInt([i])
+                $("#CityButton" + deletedCity).remove();
+            }
+        }
+        console.log(deletedCity)
         renderButtons();
     })
     StorageCheck();
